@@ -1,4 +1,4 @@
-![logo](./scr/images/logo.png)
+![logo](https://github.com/Nembus/react-ts-redux/raw/master/src/images/logo.png)
 
 ## React with Redux written in Typescript
 
