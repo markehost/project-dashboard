@@ -1,0 +1,12 @@
+{
+  "extends": ["tslint:latest", "tslint-react"],
+  "rules" : {
+    "interface-name": [true, "never-prefix"],
+    "member-access": [true, "no-public"],
+    "jsx-no-string-ref": false,
+    "ordered-imports": false,
+    "interface-over-type-literal": false,
+    "no-namespace": false
+
+  }
+}
