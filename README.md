@@ -38,10 +38,10 @@ Outlines the shape of our store. It has a counter object, and All which is Count
 We specify the action to be a union of two possible options:
 ```
   export type Action = {
-     type: "INCREMENT_COUNTER",
+     type: INCREMENT_COUNTER,
      delta: number,
    } | {
-     type: "RESET_COUNTER",
+     type: RESET_COUNTER,
    };
 ```
 That is it can either be of INCREMENT_COUNTER with a payload of delta:number, or
@@ -49,7 +49,7 @@ it could merely be a RESET_COUNTER with no payload. Then the action creators are
 ```
 export const incrementCounter = (delta: number): Action => ({
   delta,
-  type: "INCREMENT_COUNTER",
+  type: INCREMENT_COUNTER,
 });
 ```
 We also take advantage of Typescript's literal types when we create constants:
