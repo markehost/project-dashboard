@@ -16,6 +16,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/react": "^3.1.8",
     "@types/node": "^8.0.12",
     "@types/react": "^15.0.38",
     "@types/react-dom": "^15.5.1",
@@ -42,8 +43,7 @@
     "typescript": "^2.4.1",
     "url-loader": "^0.5.9",
     "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.5.1",
-    "@storybook/react": "^3.1.8"
+    "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
