@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { editFilter } from '../actions'
+import { editFilter, editDateFilter } from '../actions'
 import { default as DataGridComponent } from '../components/DataGrid'
 
 
@@ -19,6 +19,10 @@ const mapDispatchToProps = dispatch => {
 		// 	dispatch(toggleTodo(id))
 		// },
 
+		editDateFilter: ( item ) => {
+
+			dispatch( editDateFilter(item) )
+		},
 		editFilter: ( item ) => {
 			// console.log("editFilter - item", item);
 			console.log("editFilter - item", item.target.value);

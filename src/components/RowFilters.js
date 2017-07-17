@@ -1,8 +1,9 @@
-// import React, { Component } from 'react';
-import React from 'react';
+import React, { Component } from 'react';
+// import React from 'react';
 import PropTypes from 'prop-types'
-import glamorous, { Div, Input } from 'glamorous'
-// import DataCell from './DataCell'
+import RowFilterCell from './RowFilterCell'
+import { Div, Input } from 'glamorous'
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 
 const style = {
 	root: {
@@ -17,45 +18,62 @@ const style = {
 	}
 }
 
+class RowFilters extends Component {
+	constructor(props) {
+		super(props)
 
-const RowFilters = ({ data, editFilter }) => {
+		this.state = {
+			created: {
+				startDate: null,
+				endDate: null,
+			},
+			modified: {
+				startDate: null,
+				endDate: null,
+			}
+		}
+	}
 
-	// let cells = []
-	//
-	// for (let item in rowDatum) {
-	// 	// console.log(" item ---> ",rowDatum[item]);
-	// 	let cell = <DataCell key={ item } cellDatum={ rowDatum[item] } />
-	// 	cells.push( cell );
-	// }
-	// console.log("data ", data[0]);
-	// console.log("data ", Object.keys(data[0]) );
+	render() {
+		let {
+			editFilter,
+			editDateFilter,
+			data,
+		} = this.props
 
-	let keys = Object.keys(data[0]);
-	let headers = []
-	keys.map( ( item, i ) => {
-		let content =
-			<Input
-				onChange={ editFilter }
-				css={ style.input }
-				name={ item }
-				key={i}
-				placeholder={keys[i]}
-			/>
-		headers.push( content );
-	})
+		let keys = Object.keys(data[0]);
+		let headers = []
+
+		// console.log("key ---->", keys );
 
 
-	return (
-		<Div css={ style.root } >
-			{ headers }
-		</Div>
-	)
+		keys.map( ( item, i ) => {
+			let content =
+				<RowFilterCell
+					key={ item }
+					data={ keys[i] }
+					name={ item }
+					editFilter={ editFilter }
+					editDateFilter={ editDateFilter }
+				/>
+
+			headers.push( content );
+		})
+
+
+		return (
+			<Div css={ style.root } >
+				{ headers }
+			</Div>
+		)
+	}
 }
-
 
 RowFilters.propTypes = {
-	rowDatum: PropTypes.object,
+	// rowDatum: PropTypes.object,
+	data: PropTypes.array,
+	editFilter: PropTypes.func,
+	editDateFilter: PropTypes.func,
 }
-
 
 export default RowFilters;

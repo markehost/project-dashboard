@@ -24,6 +24,7 @@ class DataGrid extends Component {
 
 		let {
 			editFilter,
+			editDateFilter,
 			filters,
 			filteredData,
 			data,
@@ -34,7 +35,7 @@ class DataGrid extends Component {
 		return (
 			<Div css={ style }>
 
-				<RowFilters editFilter={ editFilter } data={ data } />
+				<RowFilters editFilter={ editFilter } editDateFilter={ editDateFilter } data={ data } />
 				<DataTable filters={ filters } data={ tableData } />
 
 			</Div>

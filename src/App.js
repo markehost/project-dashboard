@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Div, Img, H2 } from 'glamorous'
 import { css } from 'glamor'
+import 'react-dates/lib/css/_datepicker.css';
 
 // import { DATA } from './mockData'
 import DataGrid from './containers/DataGrid';

@@ -2,6 +2,7 @@
 import React from 'react';
 import Numeral from 'numeral';
 import PropTypes from 'prop-types'
+import { isNumber } from '../util'
 import { Div } from 'glamorous'
 
 const style = {
@@ -15,9 +16,6 @@ const DataCell = ({ cellDatum, handleEditCell, width }) => {
 	// console.log("cellDatum", cellDatum);
 
 	// CONVERT NUMBER TO DOLLARS
-	let isNumber = ( num ) => {
-		return !isNaN( parseFloat(num) ) && isFinite(num)
-	}
 	let content = !isNumber(cellDatum) ? cellDatum : Numeral(cellDatum).format('$0,0.00')
 
 	style.width = width;

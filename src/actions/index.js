@@ -2,7 +2,7 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-import { ADD, EDIT_FILTER } from '../constants';
+import { ADD, EDIT_FILTER, EDIT_DATE_FILTER } from '../constants';
 
 // // ------------------------------------
 // // MOCK DATA
@@ -29,6 +29,14 @@ export const editFilter = ( filter ) => {
 	// console.log("filter ", filter);
 	return {
 		type: EDIT_FILTER,
+		payload: filter,
+	}
+}
+
+export const editDateFilter = ( filter ) => {
+	// console.log("filter ", filter);
+	return {
+		type: EDIT_DATE_FILTER,
 		payload: filter,
 	}
 }
