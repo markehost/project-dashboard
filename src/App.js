@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Div, Img, H2 } from 'glamorous'
+import { Div, Img, H2, Button } from 'glamorous'
 import { css } from 'glamor'
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -35,14 +35,32 @@ const styles = {
     display: 'flex',
     flex: '1 0 auto',
   },
+  buttons: {
+    cursor: 'pointer',
+    display: 'flex',
+    flex: '1 0 auto',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    margin: '1rem',
+  },
+  button: {
+    backgroundColor: '#6AB6F9',
+    border: 'none',
+    borderRadiu: '0',
+    color: '#fff',
+    fontSize: '1.3rem',
+    padding: '0.5rem 1rem',
+    width: '25%',
+  },
+  // 'button:hover': {
+  //   backgroundColor: 'red',
+  // },
 
 }
 
 class App extends Component {
   render() {
     
-    // console.log("DATA", DATA);
-
     return (
       <Div css={ styles.root } className="App">
         <Div css={ styles.header } className="App-header">
@@ -51,6 +69,12 @@ class App extends Component {
         </Div>
 
         <DataGrid />
+
+        <Div css={ styles.buttons }>
+          <Button css={ styles.button } >Add New Record</Button>
+          <Button css={ styles.button } >Export to Excel</Button>
+        </Div>
+
 
       </Div>
     );

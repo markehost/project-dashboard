@@ -8,6 +8,7 @@ import RowFilters from './RowFilters'
 const style = {
 	display: 'flex',
 	// flex: '1 0 auto',
+	flex: '1 0 auto',
 	flexDirection: 'column',
 }
 
