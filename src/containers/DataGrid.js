@@ -25,8 +25,8 @@ const mapDispatchToProps = dispatch => {
 		},
 		editFilter: ( item ) => {
 			// console.log("editFilter - item", item);
-			console.log("editFilter - item", item.target.value);
-			console.log("editFilter - item", item.target.name);
+			// console.log("editFilter - item", item.target.value);
+			// console.log("editFilter - item", item.target.name);
 
 			let payload = {
 				name: item.target.name,

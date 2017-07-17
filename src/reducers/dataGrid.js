@@ -26,7 +26,7 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 		// EDIT DATA SET
 		// ------------------------------------
 		case 'EDIT_DATA':
-			console.log(" edit filter - state", state);
+			// console.log(" edit filter - state", state);
 			return state
 
 
@@ -34,14 +34,8 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 		// EDIT DATE FILTER
 		// ------------------------------------
 		case 'EDIT_DATE_FILTER':
-			// console.log(" edit date filter - state", state);
-			console.log(" edit date filter - action", action.payload);
-			console.info("filter", state.filters);
-			// console.log(" edit date filter - action", action.payload.endDate);
 
 			if ( Moment.isMoment(action.payload.startDate) && Moment.isMoment(action.payload.endDate)) {
-				console.log("we have two dates");
-				console.log("filter", state.filters);
 
 				// update filters with date range
 				let field = action.payload.name
@@ -52,10 +46,7 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 				updatedFilters = Object.assign( {}, state.filters, {
 					[field]: values
 				})
-				console.log("updatedFilters", updatedFilters);
 
-
-				// TODO: clear out date filters
 			} else {
 				copy = Object.assign( {}, state.filters)
 				delete copy['created']
@@ -66,23 +57,15 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 
 			// TODO: FILTER DATA
 			filterKeys = Object.keys( updatedFilters )
-			console.log("filterKeys", filterKeys);
 
 			if ( filterKeys.length > 0 ) {
 				filterKeys.map( (filter, idx) => {
-					console.log("------------------------------" );
-					console.log("filter", filter);
-					console.log("idx", idx);
 
 					// FIRST FILTER - ADD ITEMS TO FILTERED ARRAY
 					if ( idx < 1 ) {
 						data.map( (item, i) => {
-							// console.log("------------------------------" );
-							// console.log("item ----------->", item);
-							// console.log("item[filter] --->", item[filter]);
 
 							let normalizedItem = !isNumber( item[filter] ) ? item[filter] : item[filter].toString(10)
-							// console.log("normalizedItem ----------->", normalizedItem);
 
 							// check if DATE fields
 							if ( filter === 'created' || filter === 'modified' ) {
@@ -151,7 +134,6 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 		// EDIT FILTER
 		// ------------------------------------
 		case 'EDIT_FILTER':
-			// console.log(" edit filter - state", state);
 
 			// UPDATE FILTERS
 			let field = action.payload.name
@@ -170,12 +152,9 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 				delete copy[field]
 				updatedFilters = copy
 			}
-			console.log("updatedFilters", updatedFilters);
 
 			// FILTER THE DATA
 			filterKeys = Object.keys( updatedFilters )
-			// console.log("filterKeys", filterKeys);
-			// console.log("state", state);
 
 			// let filteredData = []
 			filteredData = []
@@ -186,8 +165,6 @@ const dataGrid = ( state = { data: mockData, filteredData: [], filters: {} }, ac
 					// FIRST FILTER - ADD ITEMS TO FILTERED ARRAY
 					if ( idx < 1 ) {
 						data.map( (item, i) => {
-							// console.log("item ----------->", item);
-							// console.log("item[filter] --->", item[filter]);
 							let normalizedItem = !isNumber( item[filter] ) ? item[filter] : item[filter].toString(10)
 
 							if ( normalizedItem.includes(updatedFilters[filter]) ) {

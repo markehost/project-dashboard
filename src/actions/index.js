@@ -16,7 +16,7 @@ import { ADD, EDIT_FILTER, EDIT_DATE_FILTER } from '../constants';
 // Actions
 // ------------------------------------
 export const updateData = ( item ) => {
-	console.log( 'updateData - item', item);
+	// console.log( 'updateData - item', item);
 
 	return {
 		// type: 'add',

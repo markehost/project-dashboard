@@ -20,7 +20,7 @@ class DataGrid extends Component {
 	}
 
 	render() {
-		console.info("this.props -----> ", this.props );
+		// console.info("this.props -----> ", this.props );
 
 		let {
 			editFilter,
